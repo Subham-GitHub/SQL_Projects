@@ -122,7 +122,7 @@ ORDER BY NAME;
 
 /*
 ----------------------------------
-------       TASK 2.2       ------
+------       TASK 2.2       ------      >>> TEST CASES <<<
 ----------------------------------
 */
 TRUNCATE TABLE CALLS;
@@ -198,7 +198,7 @@ FROM
 
 /*
 ---------------------------------
-          TASK 3.1
+------       TASK 3.1      ------   >>> TEST CASES <<<
 ---------------------------------
 */
 WITH CREDITS AS 
@@ -246,7 +246,7 @@ SELECT SUM(AMOUNT)-(5*(12-(SELECT COUNT(*) FROM DESIRED_TABLE))) AS BALANCE FROM
 
 /*
 ---------------------------------
-          TASK 3.2
+-------   TASK 3.2        -------      >>> TEST CASES <<<
 ---------------------------------
 */
 
@@ -274,7 +274,7 @@ SELECT SUM(AMOUNT)-(5*(12-(SELECT COUNT(*) FROM DESIRED_TABLE))) AS BALANCE FROM
 
 /*
 ---------------------------------
-          TASK 3.3
+-------   TASK 3.3        -------      >>> TEST CASES <<<
 ---------------------------------
 */
 
