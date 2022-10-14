@@ -121,6 +121,32 @@ HAVING SUM(SUM_DURATION) >= 10
 ORDER BY NAME;
 
 /*
+-------------------------------------------------------------------------------------
+------------              ALTERNATE SOLUTION USING CTE                ---------------
+-------------------------------------------------------------------------------------
+*/
+
+WITH NEW_TABLE AS 
+(SELECT 
+    P.NAME, SUM(C.DURATION) AS SUM_DURATION
+FROM
+    PHONES P
+        INNER JOIN
+    CALLS C ON P.PHONE_NUMBER = C.CALLER
+GROUP BY NAME 
+UNION SELECT 
+    P.NAME, SUM(C.DURATION) AS SUM_DURATION
+FROM
+    PHONES P
+        INNER JOIN
+    CALLS C ON P.PHONE_NUMBER = C.CALLEE
+GROUP BY NAME
+)
+SELECT NAME FROM NEW_TABLE 
+GROUP BY NAME 
+HAVING SUM(SUM_DURATION)>=10;
+
+/*
 ----------------------------------
 ------       TASK 2.2       ------      >>> TEST CASES <<<
 ----------------------------------
